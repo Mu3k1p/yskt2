@@ -1,0 +1,13 @@
+/* Hide nav links on mobile by default */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+}

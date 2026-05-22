@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Contact Us | Khmer Heritage Silk</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "primary": "#005994",
+                        "on-primary-fixed-variant": "#00497c",
+                        "on-secondary-fixed": "#410004",
+                        "background": "#fcf9f8",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#474741",
+                        "primary-fixed-dim": "#9dcaff",
+                        "surface-container-high": "#eae7e7",
+                        "on-tertiary-container": "#f5f2ea",
+                        "on-tertiary-fixed": "#1c1c17",
+                        "surface-container": "#f0eded",
+                        "inverse-surface": "#313030",
+                        "on-secondary-fixed-variant": "#930014",
+                        "outline-variant": "#c0c7d3",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-surface": "#1c1b1b",
+                        "tertiary": "#575650",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#9dcaff",
+                        "tertiary-fixed-dim": "#c9c6bf",
+                        "on-primary-container": "#ecf3ff",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#6f6e68",
+                        "tertiary-fixed": "#e5e2da",
+                        "surface-tint": "#0062a2",
+                        "surface-variant": "#e5e2e1",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ffdad7",
+                        "secondary": "#bb001d",
+                        "on-background": "#1c1b1b",
+                        "on-primary-fixed": "#001d35",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary-container": "#fffbff",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "outline": "#717882",
+                        "secondary-container": "#e2222f",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#404751",
+                        "primary-fixed": "#d1e4ff",
+                        "primary-container": "#0072bc",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface": "#fcf9f8",
+                        "surface-dim": "#dcd9d9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "24px",
+                        "container-max-width": "1280px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Domine"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-xl": ["Domine"],
+                        "headline-lg-mobile": ["Domine"],
+                        "headline-md": ["Domine"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        /* Mobile Menu Animation */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #fcf9f8 0%, #f6f3f2 100%);
+            opacity: 0;
+            transform: translateY(-20px) scaleY(0.95);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            visibility: hidden;
+            z-index: 40;
+            border-bottom: 1px solid #c0c7d3;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+        .mobile-menu.active {
+            opacity: 1;
+            transform: translateY(0) scaleY(1);
+            visibility: visible;
+        }
+        .mobile-menu-link {
+            display: block;
+            padding: 16px 24px;
+            color: #404751;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            position: relative;
+        }
+        .mobile-menu-link:hover {
+            background-color: rgba(0, 89, 148, 0.08);
+            color: #005994;
+            border-left-color: #005994;
+            padding-left: 28px;
+        }
+        .mobile-menu-link.active {
+            background-color: rgba(0, 89, 148, 0.12);
+            color: #005994;
+            border-left-color: #005994;
+            font-weight: 600;
+        }
+        .hamburger-btn {
+            transition: all 0.3s ease;
+        }
+        .hamburger-btn.active span {
+            transform: rotate(90deg);
+        }
+        /* Page transition animation */
+        body {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar (Mobile) -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-surface-container">
+<div class="max-w-[1280px] mx-auto px-margin-desktop flex items-center justify-between h-20">
+<div class="flex items-center gap-8">
+<a href="./<!-- Home - Yeaksa Printing -->.html" class="flex items-center gap-2">
+    <img src="Yeaksa_printing.png" alt="Yeaksa Printing logo" class="h-20 w-auto" />
+</a>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="nav-link font-body-md text-body-md text-on-surface-variant cursor-pointer" href="./<!-- Home - Yeaksa Printing -->.html">Home</a>
+<a class="nav-link font-body-md text-body-md text-on-surface-variant cursor-pointer" href="./<!-- Locations - Yeaksa Printing -->.html">Locations</a>
+<a class="nav-link active font-body-md text-primary cursor-pointer" href="./<!-- About - Yeaksa Printing -->.html">About</a>
+<a class="nav-link font-body-md text-body-md text-on-surface-variant cursor-pointer" href="Contact Us.html">Contact Us</a>
+
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline/10">
+<span class="material-symbols-outlined text-outline text-sm">search</span>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer active:opacity-70 transition-colors">person</span>
+</div>
+<button class="md:hidden hamburger-btn" id="hamburger">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Mobile Navigation Menu -->
+<nav class="mobile-menu" id="mobileMenu">
+<a href="./<!-- Home - Yeaksa Printing -->.html" class="mobile-menu-link">Home</a>
+<a href="./<!-- Locations - Yeaksa Printing -->.html" class="mobile-menu-link">Locations</a>
+<a href="./<!-- About - Yeaksa Printing -->.html" class="mobile-menu-link">About</a>
+<a href="./Contact Us.html" class="mobile-menu-link">Contact Us</a>
+</nav>
+<main class="pt-24 pb-12 px-margin-mobile space-y-12">
+<!-- Hero Section -->
+<section class="reveal stagger-1 text-center">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary uppercase tracking-tight mb-4">Contact Our Location</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto">
+                Dedicated to the preservation of traditional weaving and printing excellence. Our master craftsmen are available for consultations on bespoke commissions and historical restoration.
+            </p>
+</section>
+<!-- Primary Contact Actions -->
+<section class="reveal stagger-2 space-y-4">
+<div class="flex flex-col gap-4">
+<a class="flex items-center p-6 bg-surface-container-lowest border border-outline-variant/30 rounded-lg hover:border-primary transition-colors group" href="tel:+85523456789">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center mr-4">
+<span class="material-symbols-outlined text-primary" data-icon="call">call</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Direct Line</div>
+<div class="font-body-lg text-body-lg font-semibold text-primary">+855 93 810 789</div>
+<div class="font-body-lg text-body-lg font-semibold text-primary">+855 85 810 789</div>
+
+</div>
+</a>
+<a class="flex items-center p-6 bg-surface-container-lowest border border-outline-variant/30 rounded-lg hover:border-primary transition-colors group" href="mailto:protocol@yeaksaprinting.com">
+<div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Email contact</div>
+<div class="font-body-lg text-body-lg font-semibold text-primary">protocol@yeaksaprinting.com</div>
+</div>
+</a>
+</div>
+</section>
+<!-- Telegram Focus Card -->
+<section class="reveal stagger-3">
+<div class="bg-primary text-on-primary p-8 rounded-lg shadow-xl relative overflow-hidden">
+<!-- Abstract Texture Overlay -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.2) 1px, transparent 0); background-size: 24px 24px;"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="mb-6 p-3 bg-white rounded-xl">
+<img alt="Telegram QR Code" max-width: 100%; object-contain" src="photo_2026-05-19_17-06-49.jpg"/>
+<h3 class="font-headline-md text-headline-md mb-2">Connect Instantly</h3>
+<p class="font-body-md text-body-md opacity-90 mb-8 max-w-[280px]">Scan the protocol code above to initiate a secure dialogue on Telegram.</p>
+<a href="https://t.me/YEAKSA598_1" target="_blank" rel="noopener noreferrer" class="w-full block">
+    <button class="w-full bg-white text-primary py-4 font-label-md text-label-md uppercase tracking-widest rounded-lg font-bold hover:bg-surface-bright transition-all active:scale-95 shadow-md">
+        Chat on Telegram
+    </button>
+</a>
+</div>
+</div>
+</section>
+<!-- Location Section -->
+<section class="reveal stagger-4 space-y-6">
+<div class="border-t border-outline-variant/40 pt-12">
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Visit Our location</h2>
+<div class="aspect-[4/3] w-full bg-surface-dim rounded-lg overflow-hidden mb-6 relative group">
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4285.215677280393!2d104.88480077544976!3d11.580129388621716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109510034abd335%3A0x478d914beab2b158!2sYeaksa%20Printing%20598!5e1!3m2!1sen!2skh!4v1779072000877!5m2!1sen!2skh" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" 
+  </iframe>
+</div>
+<div class="absolute bottom-4 left-4 right-4 bg-background/95 p-4 rounded-lg shadow-lg border border-outline-variant/20 flex items-center justify-between">
+<div>
+<p class="font-body-md text-on-surface font-semibold leading-tight">174 Street 598, Phnom Penh</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Daun Penh, Phnom Penh</p>
+</div>
+<a class="bg-primary text-white p-2 rounded-full" href="https://maps.app.goo.gl/eLMsgf4HicxUZEQB8#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions</span>
+</a>
+</div>
+
+</main>
+<!-- Footer Visual -->
+
+<footer class="w-full mt-auto bg-surface-container-highest border-t border-outline-variant">
+<div class="max-w-[1280px] mx-auto px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="flex items-center gap-2">
+<img src="Yeaksa_printing.png" width="50" height="50" alt="">
+
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant text-center md:text-left"> Heritage &amp; Modern Craft Since 2016.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="./<!-- About - Yeaksa Printing -->.html">About</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="./<!-- Locations - Yeaksa Printing -->.html">Locations</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="mailto:protocol@yeaksaprinting.com">Contact</a>
+</div>
+<div class="text-center md:text-right">
+<p class="font-label-md text-label-md text-on-surface-variant">© 2016 Yeaksa Printing. All rights reserved.</p>
+<div class="flex justify-center md:justify-end gap-4 mt-2">
+<span class="material-symbols-outlined text-primary text-xl hover:text-secondary cursor-pointer transition-colors">public</span>
+<span class="material-symbols-outlined text-primary text-xl hover:text-secondary cursor-pointer transition-colors">mail</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('touchstart', () => {
+                button.style.transform = 'scale(0.98)';
+            });
+            button.addEventListener('touchend', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+        const currentPage = window.location.pathname.split('/').pop() || 'Contact Us.html';
+
+        // Toggle mobile menu
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when link is clicked
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.href && !link.href.includes('mailto') && !link.href.includes('tel')) {
+                    e.preventDefault();
+                    // Fade out effect
+                    document.body.style.opacity = '0';
+                    document.body.style.transform = 'translateY(8px)';
+                    // Navigate after fade
+                    setTimeout(() => {
+                        window.location.href = link.href;
+                    }, 200);
+                }
+                // Close menu
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+
+            // Set active link
+            const href = link.getAttribute('href');
+            if (href && href.includes(currentPage)) {
+                link.classList.add('active');
+            }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+    
+    </script>
+</body></html>

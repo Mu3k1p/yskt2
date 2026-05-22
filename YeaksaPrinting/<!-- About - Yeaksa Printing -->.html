@@ -1,0 +1,400 @@
+<!-- About - Yeaksa Printing -->
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .font-headline-md { font-family: 'Domine', serif; }
+    .font-headline-lg { font-family: 'Domine', serif; }
+    .font-headline-xl { font-family: 'Domine', serif; }
+    .font-body-md { font-family: 'Hanken Grotesk', sans-serif; }
+    .font-body-lg { font-family: 'Hanken Grotesk', sans-serif; }
+    .font-label-md { font-family: 'Hanken Grotesk', sans-serif; }
+    .font-label-sm { font-family: 'Hanken Grotesk', sans-serif; }
+    
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }    
+    /* Navigation underline animation */
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #005994;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .nav-link.active::after {
+      width: 100%;
+      background-color: #005994;
+    }
+    
+    .nav-link:hover {
+      color: #005994;
+    }
+    /* Mobile Menu Animation */
+    .mobile-menu {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #fcf9f8 0%, #f6f3f2 100%);
+        opacity: 0;
+        transform: translateY(-20px) scaleY(0.95);
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        visibility: hidden;
+        z-index: 40;
+        border-bottom: 1px solid #c0c7d3;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+    .mobile-menu.active {
+        opacity: 1;
+        transform: translateY(0) scaleY(1);
+        visibility: visible;
+    }
+    .mobile-menu-link {
+        display: block;
+        padding: 16px 24px;
+        color: #404751;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+        position: relative;
+    }
+    .mobile-menu-link:hover {
+        background-color: rgba(0, 89, 148, 0.08);
+        color: #005994;
+        border-left-color: #005994;
+        padding-left: 28px;
+    }
+    .mobile-menu-link.active {
+        background-color: rgba(0, 89, 148, 0.12);
+        color: #005994;
+        border-left-color: #005994;
+        font-weight: 600;
+    }
+    .hamburger-btn {
+        transition: all 0.3s ease;
+    }
+    .hamburger-btn.active span {
+        transform: rotate(90deg);
+    }
+    /* Page transition animation */
+    body {
+        animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-tint": "#0062a2",
+                  "surface": "#fcf9f8",
+                  "secondary-fixed": "#ffdad7",
+                  "inverse-on-surface": "#f3f0ef",
+                  "surface-dim": "#dcd9d9",
+                  "primary": "#005994",
+                  "on-primary-container": "#ecf3ff",
+                  "on-secondary-fixed": "#410004",
+                  "outline": "#717882",
+                  "inverse-surface": "#313030",
+                  "primary-container": "#0072bc",
+                  "tertiary-fixed-dim": "#c9c6bf",
+                  "on-secondary-fixed-variant": "#930014",
+                  "on-surface-variant": "#404751",
+                  "tertiary-container": "#6f6e68",
+                  "on-primary-fixed-variant": "#00497c",
+                  "on-tertiary-container": "#f5f2ea",
+                  "background": "#fcf9f8",
+                  "on-secondary": "#ffffff",
+                  "error-container": "#ffdad6",
+                  "surface-container": "#f0eded",
+                  "primary-fixed": "#d1e4ff",
+                  "surface-container-low": "#f6f3f2",
+                  "outline-variant": "#c0c7d3",
+                  "on-error": "#ffffff",
+                  "on-tertiary": "#ffffff",
+                  "on-secondary-container": "#fffbff",
+                  "secondary": "#bb001d",
+                  "tertiary": "#575650",
+                  "on-tertiary-fixed": "#1c1717",
+                  "on-error-container": "#93000a",
+                  "surface-container-highest": "#e5e2e1",
+                  "surface-container-lowest": "#ffffff",
+                  "on-primary-fixed": "#001d35",
+                  "tertiary-fixed": "#e5e2da",
+                  "surface-variant": "#e5e2e1",
+                  "primary-fixed-dim": "#9dcaff",
+                  "secondary-fixed-dim": "#ffb3ae",
+                  "surface-container-high": "#eae7e7",
+                  "on-primary": "#ffffff",
+                  "surface-bright": "#fcf9f8",
+                  "inverse-primary": "#9dcaff",
+                  "error": "#ba1a1a",
+                  "on-tertiary-fixed-variant": "#474741",
+                  "secondary-container": "#e2222f",
+                  "on-surface": "#1c1b1b",
+                  "on-background": "#1c1b1b"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.125rem",
+                  "lg": "0.25rem",
+                  "xl": "0.5rem",
+                  "full": "0.75rem"
+          },
+          "spacing": {
+                  "margin-mobile": "16px",
+                  "container-max-width": "1280px",
+                  "gutter": "24px",
+                  "margin-desktop": "64px",
+                  "base": "8px"
+          },
+          "fontFamily": {
+                  "label-sm": ["Hanken Grotesk"],
+                  "headline-xl": ["Domine"],
+                  "headline-lg-mobile": ["Domine"],
+                  "label-md": ["Hanken Grotesk"],
+                  "body-lg": ["Hanken Grotesk"],
+                  "headline-lg": ["Domine"],
+                  "headline-md": ["Domine"],
+                  "body-md": ["Hanken Grotesk"]
+          },
+          "fontSize": {
+                  "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                  "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                  "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                  "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                  "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar Component -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-surface-container">
+<div class="max-w-[1280px] mx-auto px-margin-desktop flex items-center justify-between h-20">
+<div class="flex items-center gap-8">
+<a href="./<!-- Home - Yeaksa Printing -->.html" class="flex items-center gap-2">
+    <img src="Yeaksa_printing.png" alt="Yeaksa Printing logo" class="h-20 w-auto" />
+</a>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="nav-link font-body-md text-body-md text-on-surface-variant cursor-pointer" href="./<!-- Home - Yeaksa Printing -->.html">Home</a>
+<a class="nav-link font-body-md text-body-md text-on-surface-variant cursor-pointer" href="./<!-- Locations - Yeaksa Printing -->.html">Locations</a>
+<a class="nav-link active font-body-md text-primary cursor-pointer" href="./<!-- About - Yeaksa Printing -->.html">About</a>
+<a class="nav-link font-body-md text-body-md text-on-surface-variant cursor-pointer" href="Contact Us.html">Contact Us</a>
+
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline/10">
+<span class="material-symbols-outlined text-outline text-sm">search</span>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer active:opacity-70 transition-colors">person</span>
+</div>
+<button class="md:hidden hamburger-btn" id="hamburger">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Mobile Navigation Menu -->
+<nav class="mobile-menu" id="mobileMenu">
+<a href="./<!-- Home - Yeaksa Printing -->.html" class="mobile-menu-link">Home</a>
+<a href="./<!-- Locations - Yeaksa Printing -->.html" class="mobile-menu-link">Locations</a>
+<a href="./<!-- About - Yeaksa Printing -->.html" class="mobile-menu-link">About</a>
+<a href="./Contact Us.html" class="mobile-menu-link">Contact Us</a>
+</nav>
+<main>
+<!-- Hero Section -->
+<header class="relative w-full h-[700px] flex items-center overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="High-quality close up of professional political party uniforms with precise embroidery and patriotic colors. The lighting is strong and authoritative, highlighting the crisp fabric textures and modern craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNJTz0IwmCe57paKA6yHl25FX49gi5XfcQv5iDELLdaNeGeRXksmqLSd6PsXAQzjWB8bHesu-xoCcgybPKIWeU_z_2XWZ9eEkDRtxSO3JHXwCoSF-bwD8-nM6TNAQPIyX6iOB8KB_GFHAfLm5CkM_TO58Jjn-O4tJIf_AtEuI2xKc98WsHxqq0kbjglXReVJK2v0xfCnqIOpRpI0wNttLx4pcymHG9HipnrG7mwSwkJ46slU0bc4aSeJt7IRuV8VGhCYm2G2UKCrrA"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
+<div class="relative max-w-[1280px] mx-auto px-margin-desktop w-full">
+<div class="max-w-2xl">
+<div class="flex items-center gap-2 mb-6">
+<span class="w-8 h-[2px] bg-secondary"></span>
+<span class="font-label-md text-label-md text-secondary uppercase tracking-widest">Familly Heritage</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-tight">Authority in Every Stitch</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+Yeaksa Printing is a Cambodia-based garment and printing company established from a family business in 2010. With over a decade of industry experience, we have grown into a trusted supplier of custom garments, T-shirt printing, and promotional products for businesses, organizations, government institutions, and large-scale events across Cambodia.        </p>
+</div>
+</div>
+</header>
+<!-- The Craft: Bento Grid Style -->
+<section class="max-w-[1280px] mx-auto px-margin-desktop py-24">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+<div class="md:col-span-5 flex flex-col justify-center h-full">
+<h2 class="font-headline-lg text-headline-lg mb-6">The Manufacturing Standard</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+Driven by quality, reliability, and customer satisfaction, we specialize in delivering professional printing and garment solutions tailored to each client’s needs. Our services include custom apparel production, event merchandise, corporate uniforms, promotional accessories, and branding materials designed to support both marketing and organizational objectives.        </p>
+<div class="space-y-6">
+<div class="flex gap-4 items-start border-b border-outline-variant pb-6">
+<span class="font-headline-md text-primary">01</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface uppercase mb-1">Precision Embroidery</h4>
+<p class="font-body-md text-on-surface-variant">High-density stitching ensures logos and emblems remain vibrant and sharp under any conditions.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start border-b border-outline-variant pb-6">
+<span class="font-headline-md text-primary">02</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface uppercase mb-1">Advanced Silk-Screening</h4>
+<p class="font-body-md text-on-surface-variant">Utilizing premium pigments that resist fading, capturing every detail of patriotic iconography.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-7 grid grid-cols-2 gap-gutter h-full">
+<div class="col-span-2 aspect-[16/9] overflow-hidden rounded-lg bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Modern textile printing machinery in a clean, professional factory setting. The focus is on the speed and precision of the printing process." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm4j12lYdI2g5OrP06hqbJ5gs0VJAvXf2c7vIwusVoCwsT8k5xlq65_YMo9-dHNCodLcpZlAEvzCXp7q-6L1wbDcTSIBGEIdijUd1NXFwZrLT_sJTqlr8uJKtn3wPjKEX327SvvhtHcIs8G2H_fmDaoTEH_ODx2z3od4sePj18-CBeaaSSmU0Zvq3pE1W6zqS1p2VcKCsCvAV1CqHiVVAnFFdjUV2NUawoT7IJon2ULOmlBxRfVolucfh0dQIAtl-kQUAQgquTpOjD"/>
+</div>
+<div class="aspect-square overflow-hidden rounded-lg bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Close-up of a worker inspecting a finished red and blue polo shirt with a political logo. High level of quality control." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5MVX7f92jWuuUkcYKeY_76zo3ok44scxBlu1vbeReawL0uIDtB2hJZXrmz18sUvQS-at6VrggeaBUPuFetlOAFghSed6E7qfwvcklboMu8-PoonWOch3JBnn6gr2455NB2QZuu2L2a4Ob3t9FXtgqS_eFX-_92Ae_WB4drer1sWPo-vLZm_t3S1bFhbp5Ru-Gfi5Fn0qdG3Hf66fiJ36CkAgwEDsXFe4Ul1YazWGWEZ9l4s9Ip3YepDgqvbYYPNnOEqqQAOt9ScRM"/>
+</div>
+<div class="aspect-square overflow-hidden rounded-lg bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A stack of folded white, red, and blue shirts ready for distribution. Clean, organized, and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSgsFbabestXeS3JK9hiFIyVyaknr9-YQC6NASk_t2G-56OgG07raFddNS5eEu0N2v7wqzFQPi0Pu9S6g_-oLOh1y8YOgneidbCpJfcN6zUbd7wHbSwjjM5ZC1nj-oojtxVydjO7Erlbl75Ol-PCyFLGvwo08DWVXs0ftriGrbmXeMOaNdLaGB50Pk7tPj_9ZU5WqGmw_nkrakKrApJP1yQ7aqLBrfEtSGQezTjCXWQMCmyxbecG8N8nVP4YvBK3awU1gXFFAwvss_"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Leadership & Quality -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-[1280px] mx-auto px-margin-desktop">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="inline-flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Our Impact</span>
+</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">Built for the People</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+Over the years, Yeaksa Printing has built strong relationships with clients through consistent service, efficient production, and attention to detail. As demand continues to grow, we remain committed to innovation, product quality, and delivering solutions that help our clients represent their brands with confidence and professionalism.¢        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-background p-8 rounded-xl shadow-sm border border-outline-variant/10 text-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">verified_user</span>
+<h3 class="font-headline-md text-headline-md mb-2">Authority</h3>
+<p class="font-body-md text-on-surface-variant">Providing the official attire for major political events and national movements.</p>
+</div>
+<div class="bg-background p-8 rounded-xl shadow-sm border border-outline-variant/10 text-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">precision_manufacturing</span>
+<h3 class="font-headline-md text-headline-md mb-2">Modern Craft</h3>
+<p class="font-body-md text-on-surface-variant">Blending traditional motifs with the latest textile technology for superior quality.</p>
+</div>
+<div class="bg-background p-8 rounded-xl shadow-sm border border-outline-variant/10 text-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">flag</span>
+<h3 class="font-headline-md text-headline-md mb-2">Khmer Pride</h3>
+<p class="font-body-md text-on-surface-variant">Proudly 100% Khmer-owned and operated, fueling local growth and national identity.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Component -->
+<footer class="w-full mt-auto bg-surface-container-highest border-t border-outline-variant">
+<div class="max-w-[1280px] mx-auto px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="flex items-center gap-2">
+<img src="Yeaksa_printing.png" width="50" height="50" alt="">
+
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant text-center md:text-left"> Heritage &amp; Modern Craft Since 2016.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="./<!-- About - Yeaksa Printing -->.html">About</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="./<!-- Locations - Yeaksa Printing -->.html">Locations</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="mailto:protocol@yeaksaprinting.com">Contact</a>
+</div>
+<div class="text-center md:text-right">
+<p class="font-label-md text-label-md text-on-surface-variant">© 2016 Yeaksa Printing. All rights reserved.</p>
+<div class="flex justify-center md:justify-end gap-4 mt-2">
+<span class="material-symbols-outlined text-primary text-xl hover:text-secondary cursor-pointer transition-colors">public</span>
+<span class="material-symbols-outlined text-primary text-xl hover:text-secondary cursor-pointer transition-colors">mail</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+  // Hamburger Menu Toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+    const currentPage = window.location.pathname.split('/').pop() || '<!-- About - Yeaksa Printing -->.html';
+
+    // Toggle mobile menu
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    });
+
+    // Close menu when link is clicked
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            if (link.href && !link.href.includes('mailto') && !link.href.includes('tel')) {
+                e.preventDefault();
+                // Fade out effect
+                document.body.style.opacity = '0';
+                document.body.style.transform = 'translateY(8px)';
+                // Navigate after fade
+                setTimeout(() => {
+                    window.location.href = link.href;
+                }, 200);
+            }
+            // Close menu
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        });
+
+        // Set active link
+        const href = link.getAttribute('href');
+        if (href && href.includes(currentPage)) {
+            link.classList.add('active');
+        }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        }
+    });
+  });
+</script>
+</body></html>
+

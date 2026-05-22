@@ -1,0 +1,352 @@
+<!-- Gallery - Yeaksa Printing -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-tint": "#0062a2",
+                "surface": "#fcf9f8",
+                "secondary-fixed": "#ffdad7",
+                "inverse-on-surface": "#f3f0ef",
+                "surface-dim": "#dcd9d9",
+                "primary": "#005994",
+                "on-primary-container": "#ecf3ff",
+                "on-secondary-fixed": "#410004",
+                "outline": "#717882",
+                "inverse-surface": "#313030",
+                "primary-container": "#0072bc",
+                "tertiary-fixed-dim": "#c9c6bf",
+                "on-secondary-fixed-variant": "#930014",
+                "on-surface-variant": "#404751",
+                "tertiary-container": "#6f6e68",
+                "on-primary-fixed-variant": "#00497c",
+                "on-tertiary-container": "#f5f2ea",
+                "background": "#fcf9f8",
+                "on-secondary": "#ffffff",
+                "error-container": "#ffdad6",
+                "surface-container": "#f0eded",
+                "primary-fixed": "#d1e4ff",
+                "surface-container-low": "#f6f3f2",
+                "outline-variant": "#c0c7d3",
+                "on-error": "#ffffff",
+                "on-tertiary": "#ffffff",
+                "on-secondary-container": "#fffbff",
+                "secondary": "#bb001d",
+                "tertiary": "#575650",
+                "on-tertiary-fixed": "#1c1c17",
+                "on-error-container": "#93000a",
+                "surface-container-highest": "#e5e2e1",
+                "surface-container-lowest": "#ffffff",
+                "on-primary-fixed": "#001d35",
+                "tertiary-fixed": "#e5e2da",
+                "surface-variant": "#e5e2e1",
+                "primary-fixed-dim": "#9dcaff",
+                "secondary-fixed-dim": "#ffb3ae",
+                "surface-container-high": "#eae7e7",
+                "on-primary": "#ffffff",
+                "surface-bright": "#fcf9f8",
+                "inverse-primary": "#9dcaff",
+                "error": "#ba1a1a",
+                "on-tertiary-fixed-variant": "#474741",
+                "secondary-container": "#e2222f",
+                "on-surface": "#1c1b1b",
+                "on-background": "#1c1b1b"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "margin-mobile": "16px",
+                "container-max-width": "1280px",
+                "gutter": "24px",
+                "margin-desktop": "64px",
+                "base": "8px"
+        },
+        "fontFamily": {
+                "label-sm": ["Hanken Grotesk"],
+                "headline-xl": ["Domine"],
+                "headline-lg-mobile": ["Domine"],
+                "label-md": ["Hanken Grotesk"],
+                "body-lg": ["Hanken Grotesk"],
+                "headline-lg": ["Domine"],
+                "headline-md": ["Domine"],
+                "body-md": ["Hanken Grotesk"]
+        },
+        "fontSize": {
+                "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+        }
+      },
+    },
+  }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+    }
+    body {
+        background-color: #fcf9f8;
+        color: #1c1b1b;
+    }
+    /* Mobile Menu Animation */
+    .mobile-menu {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #fcf9f8 0%, #f6f3f2 100%);
+        opacity: 0;
+        transform: translateY(-20px) scaleY(0.95);
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        visibility: hidden;
+        z-index: 40;
+        border-bottom: 1px solid #c0c7d3;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+    .mobile-menu.active {
+        opacity: 1;
+        transform: translateY(0) scaleY(1);
+        visibility: visible;
+    }
+    .mobile-menu-link {
+        display: block;
+        padding: 16px 24px;
+        color: #404751;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+        position: relative;
+    }
+    .mobile-menu-link:hover {
+        background-color: rgba(0, 89, 148, 0.08);
+        color: #005994;
+        border-left-color: #005994;
+        padding-left: 28px;
+    }
+    .mobile-menu-link.active {
+        background-color: rgba(0, 89, 148, 0.12);
+        color: #005994;
+        border-left-color: #005994;
+        font-weight: 600;
+    }
+    .hamburger-btn {
+        transition: all 0.3s ease;
+    }
+    .hamburger-btn.active span {
+        transform: rotate(90deg);
+    }
+    /* Page transition animation */
+    body {
+        animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-surface-container">
+<div class="max-w-[1280px] mx-auto px-margin-desktop flex items-center justify-between h-20">
+<div class="flex items-center gap-4">
+<div class="flex flex-col leading-tight">
+<span class="font-headline-md text-headline-md font-bold text-primary">YEAKSA PRINTING</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant tracking-[0.2em] uppercase">Est. 2016</span>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1 cursor-pointer active:opacity-70 transition-colors duration-200" href="#">Gallery</a>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant hover:text-primary cursor-pointer active:opacity-70 transition-colors duration-200" href="#">History</a>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant hover:text-primary cursor-pointer active:opacity-70 transition-colors duration-200" href="#">About</a>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant hover:text-primary cursor-pointer active:opacity-70 transition-colors duration-200" href="#">Locations</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 text-primary hover:text-secondary transition-colors cursor-pointer active:opacity-70">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="md:hidden hamburger-btn" id="hamburger">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Mobile Navigation Menu -->
+<nav class="mobile-menu" id="mobileMenu">
+<a href="#" class="mobile-menu-link">Gallery</a>
+<a href="#" class="mobile-menu-link">History</a>
+<a href="#" class="mobile-menu-link">About</a>
+<a href="#" class="mobile-menu-link">Locations</a>
+</nav>
+<main class="min-h-screen">
+<!-- Hero Section -->
+<section class="max-w-[1280px] mx-auto px-margin-desktop py-16">
+<div class="flex flex-col gap-4 border-b border-outline-variant pb-12">
+<span class="font-label-md text-label-md text-primary tracking-widest flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                PREMIUM POLITICAL ATTIRE
+            </span>
+<h1 class="font-headline-xl text-headline-xl text-on-surface">The Statesman Gallery</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                A showcase of commanding presence and ancestral heritage. Yeaksa Printing archives authoritative, high-end garments designed for modern leaders and national representatives.
+            </p>
+<p class="font-label-md text-label-md text-secondary uppercase tracking-widest mt-2">
+                Contact us for bespoke appointments and inquiries.
+            </p>
+</div>
+</section>
+<!-- Product Explorer -->
+<section class="max-w-[1280px] mx-auto px-margin-desktop pb-20">
+<div class="flex flex-col md:flex-row gap-10">
+<!-- Filter Sidebar -->
+<!-- Product Grid -->
+<div class="">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16"><!-- Gallery Card 1 -->
+<div class="group flex flex-col">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low mb-6 relative border border-outline-variant">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXyzZabgLiRoTgCMNId-PN7aGb_qjOonFNy89Zgd8PkkCVYB62fWv0XcvNbMwi35ad8trl8a9DrpNKxVSsIVSzBrm3ZuU-fT7mJgOXKemoNCQu6GbjY6EkBGbS7ttkTmgHEagMeeQ8EWrKGXUWeAC41PM7W9FdpxWQbBLOX0zPd6vjJjAozo8o-sY-7_PrxVVnd6fO8zXbWoEhQTrY7-kJnitMWz6t1TOh6Ml-djx6bhJOmbA-52KRyTuwv1LZCzKPC1LfG4ZxoMcv"/>
+</div>
+<div class="flex flex-col gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">The Prime Minister Phamuong</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Deep crimson silk with subtle golden motifs, tailored for the most prestigious national events.</p>
+</div>
+</div>
+<!-- Gallery Card 2 -->
+<div class="group flex flex-col">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low mb-6 relative border border-outline-variant">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH6AMF09VRhVAxBPRBeXT5Q2tBC3he9wzfozWo0gHOUYM0QVCkeIsM86Bxf15ZgyUfW4kD5F9gq3P-hlDnQtTsPaj0jlprRx10mmIMuI_De5olB9Q9MLprR8O3ZgSaMu2pyWLoVsdsFcptW02Jl3e1D825wnjWM6CQkMEN8pdY4pmUlnIwrg3fv6bqL_t9QuHGglugXDfhQbnib4-yqkY28_MZ0tLGK6F8KiJ_TvjuZ_JK0DxtA-b9_cenU8Xfwp27l8HJ0Ew2Q5sB"/>
+</div>
+<div class="flex flex-col gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">Diplomatic Indigo Hol</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Complex ikat patterns in patriotic blue and white, suitable for international summits.</p>
+</div>
+</div>
+<!-- Gallery Card 3 -->
+<div class="group flex flex-col">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low mb-6 relative border border-outline-variant">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZLvOSjj4Z9a9KINup7stt8-z0kTYnX8A9DT39hGalfGhrj3wfw45i12_0dxlrE1dF9gmuYTN6gG3mkuSOe2mdi7AlygemH_32PaTZhyQFWZ1QtlkiQ3RZiy3Om_rh0bNav6ftE8plRgbCYXKYRrv71BmgrJMImF45JMp4NpV3eeyo1toNOHLd0riSfScf-CRcRtgkopcSxxkndZ8d8meGA2RCsuJkGjq8LDQ8My6_VCK1Kf1CTJM0-8ffZE24NQ7NblGfftv6A1Eo"/>
+</div>
+<div class="flex flex-col gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">The Ambassador's Scarf</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">White and blue silk weave with hand-rolled edges, featuring heritage Kbach patterns.</p>
+</div>
+</div></div>
+<div class="mt-16 text-center">
+<p class="font-body-md text-body-md text-on-surface-variant italic">The Statesman Gallery represents a selection of our archived works. For specific design requests, please contact our atelier.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Heritage Callout -->
+<section class="bg-surface-container-low py-20">
+<div class="max-w-[1280px] mx-auto px-margin-desktop">
+<div class="flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-1/2">
+<img class="w-full border-4 border-white shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAZw5f-4sJg6ryS8UB0TFskQ1Tju8BoxhcQs3hAuRSQzPE0gSsrUjtwM8UPSGLDUIYMeM4ltr0KIoVgXivrPTswx-rCQMrOVdF3vUGnDGwrTHiHVobxNFXmfM-W_0NzgSx-r8orSwHMGxcdVluka6CnYPZONWKLE_M06-_ZA3a8wXjSbodibypfezne6OziZR0G3APGgR9stdrzpYJPa5JS10tM7joiTMjtv37FxDc07H5Hpdgsr78HddXtbjy4aeLncNBekgcWmB2"/>
+</div>
+<div class="w-full md:w-1/2 flex flex-col gap-6">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-widest">NATIONAL HERITAGE</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">The Fabric of a Nation</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        At Yeaksa Printing, we believe clothing is a statement of sovereignty and cultural pride. Each garment for the patriotic leader is woven with the weight of our shared history and the hope of our collective future.
+                    </p>
+<div class="mt-4">
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1 hover:text-secondary hover:border-secondary transition-all uppercase tracking-widest" href="#">Our Craft Manifesto</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-highest border-t border-outline-variant">
+<div class="max-w-[1280px] mx-auto px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="flex items-center gap-2">
+<img src="Yeaksa_printing.png" width="50" height="50" alt="">
+
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant text-center md:text-left"> Heritage &amp; Modern Craft Since 2016.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="./<!-- About - Yeaksa Printing -->.html">About</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="./<!-- Locations - Yeaksa Printing -->.html">Locations</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors cursor-pointer" href="mailto:protocol@yeaksaprinting.com">Contact</a>
+</div>
+<div class="text-center md:text-right">
+<p class="font-label-md text-label-md text-on-surface-variant">© 2016 Yeaksa Printing. All rights reserved.</p>
+<div class="flex justify-center md:justify-end gap-4 mt-2">
+<span class="material-symbols-outlined text-primary text-xl hover:text-secondary cursor-pointer transition-colors">public</span>
+<span class="material-symbols-outlined text-primary text-xl hover:text-secondary cursor-pointer transition-colors">mail</span>
+</div>
+</div>
+</div>
+</footer>
+</body>
+<script>
+  // Hamburger Menu Toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+    // Toggle mobile menu
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    });
+
+    // Close menu when link is clicked
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Close menu
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        }
+    });
+  });
+</script>
+</html>
+
